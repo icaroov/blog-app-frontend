@@ -15,6 +15,9 @@ export const theme = extendTheme({
       '50': '#EEEEF2'
     }
   },
+  shadows: {
+    outline: '0 0 1px 2px #8a3e0b, 0 1px 1px rgba(0, 0, 0, .15)'
+  },
   fonts: {
     heading: 'Roboto',
     body: 'Roboto'
