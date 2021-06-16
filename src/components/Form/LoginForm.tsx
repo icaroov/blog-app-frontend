@@ -33,14 +33,20 @@ const LoginForm = () => {
     <Box as="form" onSubmit={handleSubmit(handleLogin)}>
       <Stack spacing="6">
         <Input
-          label="Email"
+          label="E-mail"
           name="email"
           type="email"
           autoComplete="email"
           error={errors.email}
           {...register('email')}
         />
-        <PasswordField {...register('password')} />
+        <PasswordField
+          formId="password"
+          name="password"
+          label="Senha"
+          isLogin={true}
+          {...register('password')}
+        />
 
         <Button
           type="submit"

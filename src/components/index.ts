@@ -6,6 +6,7 @@ export { default as Link } from './Link'
 
 export { default as Input } from './Form/Input'
 export { default as LoginForm } from './Form/LoginForm'
+export { default as RegisterForm } from './Form/RegisterForm'
 export { default as PasswordField } from './Form/PasswordField'
 
 export { default as Header } from './Header'

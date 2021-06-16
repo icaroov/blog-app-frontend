@@ -1,4 +1,4 @@
-import { forwardRef, ForwardRefRenderFunction, useRef } from 'react'
+import { forwardRef, ForwardRefRenderFunction, useRef, useState } from 'react'
 import { HiEye, HiEyeOff } from 'react-icons/hi'
 import {
   Box,
@@ -10,16 +10,24 @@ import {
   InputGroup,
   InputProps,
   InputRightElement,
+  FormErrorMessage,
   useDisclosure,
   useMergeRefs,
   useColorModeValue as mode
 } from '@chakra-ui/react'
-import { useState } from 'react'
+import { FieldError } from 'react-hook-form'
+
+interface PasswordFieldProps extends InputProps {
+  formId?: string
+  label?: string
+  isLogin?: boolean
+  error?: FieldError
+}
 
 const PasswordFieldBase: ForwardRefRenderFunction<
   HTMLInputElement,
-  InputProps
-> = (props, ref) => {
+  PasswordFieldProps
+> = ({ name, label, isLogin = false, error = null, formId, ...rest }, ref) => {
   const { onToggle } = useDisclosure()
   const [show, setShow] = useState(false)
   const inputRef = useRef<HTMLInputElement>(null)
@@ -32,18 +40,20 @@ const PasswordFieldBase: ForwardRefRenderFunction<
   }
 
   return (
-    <FormControl id="password">
+    <FormControl id={formId} isInvalid={!!error}>
       <Flex justify="space-between">
-        <FormLabel>Senha</FormLabel>
+        {!!label && <FormLabel>{label}</FormLabel>}
 
-        <Box
-          as="a"
-          color={mode('orange.600', 'orange.200')}
-          fontWeight="semibold"
-          fontSize="sm"
-        >
-          Esqueceu a senha?
-        </Box>
+        {isLogin && (
+          <Box
+            as="a"
+            color={mode('orange.600', 'orange.200')}
+            fontWeight="semibold"
+            fontSize="sm"
+          >
+            Esqueceu a senha?
+          </Box>
+        )}
       </Flex>
 
       <InputGroup>
@@ -59,16 +69,17 @@ const PasswordFieldBase: ForwardRefRenderFunction<
 
         <Input
           ref={mergeRef}
-          name="password"
+          name={name}
           type={show ? 'text' : 'password'}
           autoComplete="current-password"
           focusBorderColor="orange.500"
           bgColor="gray.900"
           _hover={{ bgColor: 'gray.900' }}
           variant="filled"
-          {...props}
+          {...rest}
         />
       </InputGroup>
+      {!!error && <FormErrorMessage>{error.message}</FormErrorMessage>}
     </FormControl>
   )
 }
