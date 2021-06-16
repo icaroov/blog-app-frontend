@@ -1,6 +1,7 @@
 import { Flex, Box } from '@chakra-ui/react'
 
 import Header from '../Header'
+import Footer from '../Footer'
 
 interface LayoutProps {
   children: React.ReactNode
@@ -16,6 +17,8 @@ const Layout = ({ children }: LayoutProps) => {
           {children}
         </Box>
       </Flex>
+
+      <Footer />
     </Flex>
   )
 }

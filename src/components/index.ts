@@ -15,3 +15,5 @@ export { default as Profile } from './Header/Profile'
 export { default as SearchBox } from './Header/SearchBox'
 
 export { default as Layout } from './Layout'
+
+export { default as Footer } from './Footer'
