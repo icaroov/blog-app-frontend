@@ -13,7 +13,7 @@ const Footer = () => (
       color="white"
       bg={useColorModeValue('gray.800', 'blue.400')}
     >
-      <HStack spacing="3" display="flex" alignItems="center">
+      <HStack spacing="3">
         <Logo />
         <Text fontWeight="medium" marginEnd="2">
           Copyright © 2021

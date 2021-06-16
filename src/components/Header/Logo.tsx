@@ -7,7 +7,7 @@ const Logo = () => {
       fontSize={['2xl', '3xl']}
       fontWeight="bold"
       letterSpacing="tight"
-      w="64"
+      w={['', '64']}
     >
       <Link href="/" passHref>
         <a>blogger</a>
