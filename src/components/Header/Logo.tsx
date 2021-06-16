@@ -1,4 +1,5 @@
 import { Text } from '@chakra-ui/react'
+import Link from 'next/link'
 
 const Logo = () => {
   return (
@@ -8,7 +9,9 @@ const Logo = () => {
       letterSpacing="tight"
       w="64"
     >
-      blogger
+      <Link href="/" passHref>
+        <a>blogger</a>
+      </Link>
       <Text as="span" ml="1" color="orange.500">
         .
       </Text>

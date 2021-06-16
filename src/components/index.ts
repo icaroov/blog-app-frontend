@@ -8,8 +8,6 @@ export { default as Input } from './Form/Input'
 export { default as LoginForm } from './Form/LoginForm'
 export { default as PasswordField } from './Form/PasswordField'
 
-export { default as ButtonWithIcon } from './Button/ButtonWithIcon'
-
 export { default as Header } from './Header'
 export { default as Logo } from './Header/Logo'
 export { default as Profile } from './Header/Profile'

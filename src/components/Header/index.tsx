@@ -1,12 +1,19 @@
-import { Flex, useBreakpointValue, IconButton, Icon } from '@chakra-ui/react'
+import {
+  Flex,
+  useBreakpointValue,
+  IconButton,
+  Icon,
+  Button
+} from '@chakra-ui/react'
+import Link from 'next/link'
 import { RiMenuLine } from 'react-icons/ri'
 // import { useSidebarDrawer } from '../../hooks/SidebarDrawer'
 
 import Logo from './Logo'
-import Profile from './Profile'
+// import Profile from './Profile'
 import SearchBox from './SearchBox'
 
-export default function Header() {
+const Header = () => {
   const isWideScreen = useBreakpointValue({
     base: false,
     lg: true
@@ -40,8 +47,15 @@ export default function Header() {
       {isWideScreen && <SearchBox />}
 
       <Flex align="center" ml="auto">
-        <Profile showProfileData={isWideScreen} />
+        {/* <Profile showProfileData={isWideScreen} /> */}
+        <Link href="/login" passHref>
+          <Button as="a" colorScheme="orange" size="lg">
+            Login
+          </Button>
+        </Link>
       </Flex>
     </Flex>
   )
 }
+
+export default Header
