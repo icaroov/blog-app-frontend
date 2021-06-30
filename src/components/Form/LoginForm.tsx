@@ -12,7 +12,10 @@ interface InputValuesData {
 
 const loginSchema = yup.object().shape({
   email: yup.string().required('E-mail obrigatório').email('E-mail inválido'),
-  password: yup.string().required('Senha obrigatória')
+  password: yup
+    .string()
+    .required('Senha obrigatória')
+    .length(6, 'Sua senha precisa ter mais de 6 caracteres')
 })
 
 const LoginForm = () => {
@@ -23,7 +26,7 @@ const LoginForm = () => {
   const { errors } = formState
 
   const handleLogin: SubmitHandler<InputValuesData> = async values => {
-    await new Promise(resolve => setTimeout(resolve, 2000))
+    await new Promise(resolve => setTimeout(resolve, 1000))
     console.log(values)
   }
 
@@ -42,6 +45,7 @@ const LoginForm = () => {
           formId="password"
           name="password"
           label="Senha"
+          error={errors.password}
           isLogin={true}
           {...register('password')}
         />

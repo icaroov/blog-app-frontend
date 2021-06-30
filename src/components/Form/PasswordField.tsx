@@ -17,6 +17,8 @@ import {
 } from '@chakra-ui/react'
 import { FieldError } from 'react-hook-form'
 
+import { Link } from 'components'
+
 interface PasswordFieldProps extends InputProps {
   formId?: string
   label?: string
@@ -46,12 +48,11 @@ const PasswordFieldBase: ForwardRefRenderFunction<
 
         {isLogin && (
           <Box
-            as="a"
             color={mode('orange.600', 'orange.200')}
             fontWeight="semibold"
             fontSize="sm"
           >
-            Esqueceu a senha?
+            <Link href="/forgot-password">Esqueceu a senha?</Link>
           </Box>
         )}
       </Flex>

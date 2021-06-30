@@ -1,5 +1,12 @@
 import Head from 'next/head'
-import { Box, Heading, SimpleGrid, Text, IconButton } from '@chakra-ui/react'
+import {
+  Box,
+  Heading,
+  SimpleGrid,
+  Text,
+  IconButton,
+  Tooltip
+} from '@chakra-ui/react'
 import { FaFacebook, FaGoogle, FaSms } from 'react-icons/fa'
 
 import { Card, Link, LoginForm, DividerWithText } from 'components'
@@ -26,26 +33,32 @@ const Login = () => (
         <DividerWithText mt="6">ou continue com</DividerWithText>
 
         <SimpleGrid mt="6" columns={3} spacing="3">
-          <IconButton
-            _hover={{ color: 'blue.500' }}
-            variant="outline"
-            aria-label="Login with Facebook"
-            icon={<FaFacebook size={35} />}
-          />
+          <Tooltip hasArrow label="Facebook" fontSize="md">
+            <IconButton
+              _hover={{ color: 'blue.500' }}
+              variant="outline"
+              aria-label="Login with Facebook"
+              icon={<FaFacebook size={35} />}
+            />
+          </Tooltip>
 
-          <IconButton
-            _hover={{ color: 'red.500' }}
-            variant="outline"
-            aria-label="Login with Google"
-            icon={<FaGoogle size={35} />}
-          />
+          <Tooltip hasArrow label="Google" fontSize="md">
+            <IconButton
+              _hover={{ color: 'red.500' }}
+              variant="outline"
+              aria-label="Login with Google"
+              icon={<FaGoogle size={35} />}
+            />
+          </Tooltip>
 
-          <IconButton
-            _hover={{ color: 'green.400' }}
-            variant="outline"
-            aria-label="Login with SMS"
-            icon={<FaSms size={35} />}
-          />
+          <Tooltip hasArrow label="Número de telefone" fontSize="md">
+            <IconButton
+              _hover={{ color: 'green.400' }}
+              variant="outline"
+              aria-label="Login with SMS"
+              icon={<FaSms size={35} />}
+            />
+          </Tooltip>
         </SimpleGrid>
       </Card>
     </Box>
