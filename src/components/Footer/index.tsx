@@ -1,7 +1,5 @@
 import { Box, HStack, Stack, Text, useColorModeValue } from '@chakra-ui/react'
 
-import { Logo } from 'components'
-
 const Footer = () => (
   <Box as="footer" pt="8">
     <Stack
@@ -14,7 +12,6 @@ const Footer = () => (
       bg={useColorModeValue('gray.800', 'blue.400')}
     >
       <HStack spacing="3">
-        <Logo />
         <Text fontWeight="medium" marginEnd="2">
           Copyright © 2021
         </Text>
