@@ -3,12 +3,7 @@ import Link from 'next/link'
 
 const Logo = () => {
   return (
-    <Text
-      fontSize={['2xl', '3xl']}
-      fontWeight="bold"
-      letterSpacing="tight"
-      w={['', '64']}
-    >
+    <Text fontSize={['2xl', '3xl']} fontWeight="bold" letterSpacing="tight">
       <Link href="/" passHref>
         <a>blogger</a>
       </Link>

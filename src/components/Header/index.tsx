@@ -1,25 +1,13 @@
-import {
-  Flex,
-  useBreakpointValue,
-  IconButton,
-  Icon,
-  Button
-} from '@chakra-ui/react'
+import { Flex, useBreakpointValue, Button } from '@chakra-ui/react'
 import Link from 'next/link'
-import { RiMenuLine } from 'react-icons/ri'
-// import { useSidebarDrawer } from '../../hooks/SidebarDrawer'
 
-import Logo from './Logo'
-// import Profile from './Profile'
-import SearchBox from './SearchBox'
+import { Menu, SearchBox, Logo } from 'components'
 
 const Header = () => {
   const isWideScreen = useBreakpointValue({
     base: false,
     lg: true
   })
-
-  // const { onOpen } = useSidebarDrawer()
 
   return (
     <Flex
@@ -31,29 +19,28 @@ const Header = () => {
       mt="4"
       px="6"
       align="center"
+      justifyContent={{ base: 'space-between' }}
     >
       {!isWideScreen && (
-        <IconButton
-          aria-label="open navigation menu"
-          icon={<Icon as={RiMenuLine} />}
-          fontSize="24"
-          variant="unstyled"
-          mr="2"
-        />
+        <>
+          <Logo />
+          <Menu />
+        </>
       )}
 
-      <Logo />
-
-      {isWideScreen && <SearchBox />}
-
-      <Flex align="center" ml="auto">
-        {/* <Profile showProfileData={isWideScreen} /> */}
-        <Link href="/login" passHref>
-          <Button as="a" colorScheme="orange" size="lg">
-            Login
-          </Button>
-        </Link>
-      </Flex>
+      {isWideScreen && (
+        <>
+          <Logo />
+          <SearchBox />
+          <Flex align="center">
+            <Link href="/login" passHref>
+              <Button as="a" colorScheme="orange" size="lg">
+                Login
+              </Button>
+            </Link>
+          </Flex>
+        </>
+      )}
     </Flex>
   )
 }
