@@ -8,6 +8,7 @@ import { schema } from './validation'
 
 interface InputValuesData {
   email: string
+  phoneNumber?: string
   password: string
 }
 
@@ -34,7 +35,7 @@ const LoginForm = ({ isLoginWithEmail }: LoginFormProps) => {
         {isLoginWithEmail ? (
           <Input
             label="E-mail"
-            name="emailOrPhone"
+            name="email"
             type="email"
             autoComplete="email"
             placeholder="exemplo@exemplo.com"

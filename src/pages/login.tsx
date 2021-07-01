@@ -40,21 +40,22 @@ const Login = () => {
             <ButtonWithTooltip
               label="Facebook"
               hoverColor="blue.500"
-              ariaLabel="Login com Facebook"
+              aria-label="Login com Facebook"
               icon={<FaFacebook size={35} />}
             />
 
             <ButtonWithTooltip
               label="Google"
               hoverColor="red.500"
-              ariaLabel="Login com Google"
+              aria-label="Login com Google"
               icon={<FaGoogle size={35} />}
             />
 
             <ButtonWithTooltip
+              disabled={true} // TODO: habilitar login e registro com sms
               label={isEmail ? 'Número de telefone' : 'E-mail'}
               hoverColor="green.400"
-              ariaLabel="Login com número de telefone"
+              aria-label="Login com número de telefone"
               icon={isEmail ? <FaSms size={35} /> : <MdEmail size={35} />}
               onClick={() => setIsEmail(!isEmail)}
             />
