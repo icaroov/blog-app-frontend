@@ -1,30 +1,18 @@
-import { MouseEventHandler } from 'react'
-import { Tooltip, IconButton } from '@chakra-ui/react'
+import { Tooltip, IconButtonProps, IconButton } from '@chakra-ui/react'
 
-interface ButtonWithTooltipProps {
+interface ButtonWithTooltipProps extends IconButtonProps {
   label: string
   hoverColor: string
-  ariaLabel: string
-  icon: React.ReactElement
-  onClick?: MouseEventHandler<HTMLButtonElement>
 }
 
 const ButtonWithTooltip = ({
   label,
   hoverColor,
-  ariaLabel,
-  icon,
   ...rest
 }: ButtonWithTooltipProps) => {
   return (
     <Tooltip hasArrow label={label} fontSize="md">
-      <IconButton
-        _hover={{ color: hoverColor }}
-        variant="outline"
-        aria-label={ariaLabel}
-        icon={icon}
-        {...rest}
-      />
+      <IconButton _hover={{ color: hoverColor }} variant="outline" {...rest} />
     </Tooltip>
   )
 }
